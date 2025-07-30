@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhila Kovvuri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link active">Research</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="bio-section">
+            <div class="bio-content">
+                <div class="bio-text">
+                    <h1>Akhila Kovvuri</h1>
+                    <p class="bio-description">
+                        I am a Ph.D. Candidate in Economics at Stanford University. My primary fields are development and labor economics. 
+                    </p>
+                    <p class="bio-description">
+                        I study barriers and solutions to women's economic participation, with particular interest in the role of firms and urban infrastructure. 
+                        
+                        My current projects include studying public transportation's impact on firms and female employment in urban India, analyzing career progression using linked job portal data in Brazil, and evaluating job readiness interventions for marginalized women. 
+                        <!-- My approach often involves gathering and linking novel datasets to address these questions. -->
+                    </p>
+                    <div class="contact-info">
+                        <p>Email: <a href="mailto:akhilajk@stanford.edu">akhilajk@stanford.edu</a></p>
+                    </div>
+                </div>
+                <div class="bio-photo">
+                    <img src="headshot_akhilajk.png" alt="Akhila Kovvuri" class="headshot">
+                </div>
+            </div>
+        </section>
+
+        <section class="research-section">
+            <h2>Working Papers</h2>
+            <div class="paper-item">
+                <h3 class="paper-title"><a href="https://www.nber.org/papers/w33417" class="paper-title-link" target="_blank">Ancient Epics in the Television Age: Mass Media, Identity, and the Rise of Hindu Nationalism in India</a></h3>
+                <p class="paper-coauthors">with Resuf Ahmed, Paul Brimble, Alessandro Saia, and Dean Yang</p>
+                <div class="abstract-container">
+                    <button class="abstract-toggle" onclick="toggleAbstract('abstract1')">Show Abstract</button>
+                    <p id="abstract1" class="paper-description abstract-hidden">
+                        This study examines the long-term social and political impacts of mass media exposure to religious content in India. We study the impact of "Ramayan," the massively popular adaptation of the Hindu epic televised in 1987-88. To identify causal effects, we conduct difference-in-difference analyses and exploit variation in TV signal strength driven by location of TV transmitters and topographical features inhibiting electromagnetic TV signal propagation. We find that areas with higher exposure to Ramayan (higher TV signal strength when the show aired) experienced significant cultural and political changes. First, we document a strengthening of religious identity among Hindus: parents in these areas became more likely to give their newborn sons traditionally Hindu names, and households showed increased adherence to orthodox Hindu dietary practices. In the short term, this cultural shift led to an increase in Hindu-Muslim communal violence through 1992. Over the longer term, through 2000, the Hindu nationalist Bharatiya Janata Party (BJP) became more likely to win state assembly elections. Analyses of changes in local TV signal strength in India over decades indicate that these effects are not due to general access to TV but are due to exposure to the Ramayan TV show in 1987-1988. Our findings reveal that media portrayal of religious narratives can have lasting effects on cultural identity, intergroup violence, and electoral outcomes.
+                    </p>
+                </div>
+                <div class="paper-coverage">
+                    <p><strong>Media Coverage:</strong> <a href="https://www.thehindu.com/society/how-the-ramayan-tv-show-helped-shape-a-singular-nationwide-hindu-identity/article69202807.ece" target="_blank" class="coverage-link">The Hindu</a></p>
+                </div>
+            </div>
+
+            <h2>Works in Progress</h2>
+            <div class="paper-item">
+                <h3 class="paper-title">Moving Opportunity Closer: Public Transportation, Firm Growth, and Female Employment </h3>
+                <p class="paper-coauthors">with Karmini Sharma</p>
+            </div>
+
+            <div class="paper-item">
+                <h3 class="paper-title">Enhancing Employment for Muslim Women in India Through Low-Cost Virtual Training</h3>
+            </div>
+
+            <div class="paper-item">
+                <h3 class="paper-title">Promoting Equality: Gender Gaps in Job Applications and Career Outcomes - Evidence from Job Portal and Administrative Data in Brazil </h3>
+                <p class="paper-coauthors">with Willian Adamczyk, Verónica Escudero, and Sally Zhang </p>
+            </div>
+
+        
+            <h2>Other Publications</h2>
+            <div class="paper-item">
+                <h3 class="paper-title">
+                    <a href="https://link.springer.com/article/10.1007/s11109-019-09533-0" class="paper-title-link" target="_blank">
+                        Real Solutions for Fake News? Measuring the Effectiveness of General Warnings and Fact-Check Banners in Reducing Belief in False Stories on Social Media
+                    </a>
+                </h3>
+                <p class="paper-journal"><em>Political Behavior</em>, 42, 1073-1095 (2020)</p>
+                <div class="paper-coverage"></div>
+                    <p><strong>Media Coverage:</strong> <a href="https://www.nytimes.com/2020/05/27/technology/trump-twitter.html" target="_blank" class="coverage-link">The New York Times</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function toggleAbstract(id) {
+            const abstract = document.getElementById(id);
+            const button = abstract.previousElementSibling;
+            
+            if (abstract.classList.contains('abstract-hidden')) {
+                abstract.classList.remove('abstract-hidden');
+                button.textContent = 'Hide Abstract';
+            } else {
+                abstract.classList.add('abstract-hidden');
+                button.textContent = 'Show Abstract';
+            }
+        }
+    </script>
+</body>
+</html>
