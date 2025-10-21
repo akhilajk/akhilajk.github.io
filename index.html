@@ -4,72 +4,499 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akhila Kovvuri</title>
-    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #666;
+            font-weight: 400;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .bio-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .bio-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .bio-photo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .headshot {
+            width: 280px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-text h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .bio-description {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+            color: #555;
+        }
+
+        .job-market-notice {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .job-market-notice p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+            color: #555;
+            font-weight: 700;
+        }
+
+        .job-market-notice a {
+            color: #8C1515;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .job-market-notice a:hover {
+            text-decoration: underline;
+        }
+
+        .references-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .references-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 2rem;
+        }
+
+        .reference-item {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .reference-name {
+            color: #8C1515;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .reference-name:hover {
+            text-decoration: underline;
+        }
+
+        .reference-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .research-section {
+            margin-top: 2rem;
+        }
+
+        .research-section h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #333;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .research-section h2:first-child {
+            margin-top: 0;
+        }
+
+        .paper-item {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .paper-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .paper-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .paper-title-link {
+            color: #8C1515;
+            text-decoration: underline;
+            text-decoration-thickness: 1px; /* Make underline lighter */
+            font-weight: 600;
+        }
+
+        .paper-title-link:hover {
+            text-decoration: underline;
+            color: #6a0f0f;
+        }
+
+        .paper-title-link::after {
+            content: " 🔗"; /* Chain link symbol */
+            font-size: 0.85em;
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.2s ease;
+        }
+
+        .paper-title-link:hover::after {
+            opacity: 1; /* Show on hover */
+        }
+
+        .draft-notice {
+            font-size: 0.9rem;
+            color: #999;
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+
+        .paper-coauthors {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .paper-journal {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .paper-description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .paper-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .paper-link {
+            color: #8C1515;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 1px solid #8C1515;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .paper-link:hover {
+            background-color: #8C1515;
+            color: white;
+        }
+
+        .paper-coverage {
+            margin-top: 1rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .coverage-link {
+            color: #666; 
+            text-decoration: none;
+        }
+
+        .coverage-link:hover {
+            color: #666; 
+            text-decoration: underline;
+        }
+
+        .teaching-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .teaching-course {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+
+        .teaching-instructor {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 0.25rem;
+        }
+
+        .teaching-years {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .teaching-item {
+            margin-bottom: 1rem;
+        }
+
+        .teaching-course {
+            font-size: 1.05rem;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .teaching-eval-link {
+            color: #8C1515;
+            text-decoration: underline;
+            font-size: 0.95rem;
+            margin-left: 0.5rem;
+        }
+
+        .teaching-eval-link:hover {
+            color: #6a0f0f;
+        }
+
+        .teaching-philosophy {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .teaching-philosophy p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .teaching-link {
+            color: #8C1515;
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+        }
+
+        .teaching-link:hover {
+            color: #6a0f0f;
+        }
+
+        
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .nav-container {
+                padding: 0 1rem;
+            }
+            
+            .bio-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .bio-text h1 {
+                font-size: 2rem;
+            }
+            
+            .bio-description {
+                font-size: 1rem;
+            }
+            
+            .headshot {
+                width: 180px;
+                height: 225px;
+            }
+
+            .references-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-link active">Research</a>
+            <a href="#research" class="nav-link active">Research</a>
+            <a href="#teaching" class="nav-link">Teaching</a>
+            <a href="https://www.dropbox.com/scl/fi/cyar8imdpfhq2f3ru33x4/Akhila_CV.pdf?rlkey=ezftergsinbxc9mvilvz53n90&st=f5u1ssx5&dl=0" class="nav-link" target="_blank">CV</a>
         </div>
     </nav>
 
     <main class="container">
         <section class="bio-section">
             <div class="bio-content">
+                <div class="bio-photo">
+                    <img src="AkhilaKovvuriHeadshots-1.jpg" alt="Akhila Kovvuri" class="headshot">
+                </div>
                 <div class="bio-text">
                     <h1>Akhila Kovvuri</h1>
                     <p class="bio-description">
-                        I am a Ph.D. Candidate in Economics at Stanford University. My primary fields are development and labor economics. 
+                        I am a Ph.D. Candidate in Economics at Stanford University. I study development and labor economics, employing tools from urban and spatial economics.
+                        
                     </p>
                     <p class="bio-description">
-                        I study barriers and solutions to women's economic participation, with particular interest in the role of firms and urban infrastructure. 
-                        
-                        My current projects include studying public transportation's impact on firms and female employment in urban India, analyzing career progression using linked job portal data in Brazil, and evaluating job readiness interventions for marginalized women. 
-                        <!-- My approach often involves gathering and linking novel datasets to address these questions. -->
+                        My research focuses on how firms, urban infrastructure, and spatial access to jobs shape economic opportunities for marginalized groups.
                     </p>
-                    <div class="contact-info">
-                        <p>Email: <a href="mailto:akhilajk@stanford.edu">akhilajk@stanford.edu</a></p>
+                    
+                    <div class="job-market-notice">
+                        <p><strong>I am on the 2025/2026 Job Market.</strong></p>
+                        <p>You can find my <a href="https://www.dropbox.com/scl/fi/cyar8imdpfhq2f3ru33x4/Akhila_CV.pdf?rlkey=ezftergsinbxc9mvilvz53n90&st=f5u1ssx5&dl=0" target="_blank">CV here</a>, and you can reach me at <a href="mailto:akhilajk@stanford.edu">akhilajk@stanford.edu</a>.</p>
                     </div>
-                </div>
-                <div class="bio-photo">
-                    <img src="headshot_akhilajk.png" alt="Akhila Kovvuri" class="headshot">
+
+                    <div class="references-section">
+                        <h3>References</h3>
+                        <div class="references-grid">
+                            <div class="reference-item">
+                                <a href="mailto:melanie.morten@stanford.edu" class="reference-name">Melanie Morten</a> <span class="reference-label">(co-primary)</span>
+                            </div>
+                            <div class="reference-item">
+                                <a href="mailto:avoena@stanford.edu" class="reference-name">Alessandra Voena</a> <span class="reference-label">(co-primary)</span>
+                            </div>
+                            <div class="reference-item">
+                                <a href="mailto:nbloom@stanford.edu" class="reference-name">Nick Bloom</a>
+                            </div>
+                            <div class="reference-item">
+                                <a href="mailto:arungc@stanford.edu" class="reference-name">Arun Chandrasekhar</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="research-section">
+        <section class="research-section" id="research">
+            <h2>Job Market Paper</h2>
+            <div class="paper-item">
+                <h3 class="paper-title">Moving Opportunity Closer: How Public Transit Transforms Firm Composition and Employment<span class="draft-notice">[draft coming soon]</span></h3>
+                <p class="paper-coauthors">with Karmini Sharma</p>
+                <p class="paper-description">
+                    Transportation infrastructure can improve workers' access to existing economic opportunities, but it can also reshape economic opportunity itself by influencing where and what kinds of firms locate. It remains unclear how such firm composition changes translate into employment effects for different groups of workers, given that workers vary in their propensity to work in different types of firms and in their sensitivity to commuting costs. This paper studies how public transit infrastructure influences firm location, composition, and heterogeneous employment effects using novel neighborhood-level data and multiple differences-in-differences strategies exploiting the phased expansion of the Delhi Metro Rail in India. Metro access induces substantial firm entry—particularly larger, more specialized, and consumer-facing establishments—creating new economic hubs in city peripheries. These compositional shifts generate heterogeneous employment effects: female employment increases by 22 times relative to baseline in peripheral areas compared to 7 times for males. Counterfactual decompositions reveal that changing firm composition accounts for most of this differential effect, generating a threefold increase in the female-to-male employment ratio compared to a twofold increase from improved mobility alone. The results demonstrate that public transit reshapes employment not only through reduced commuting costs but by fundamentally transforming local economic structure.
+                </p>
+            </div>
+
             <h2>Working Papers</h2>
             <div class="paper-item">
                 <h3 class="paper-title"><a href="https://www.nber.org/papers/w33417" class="paper-title-link" target="_blank">Ancient Epics in the Television Age: Mass Media, Identity, and the Rise of Hindu Nationalism in India</a></h3>
                 <p class="paper-coauthors">with Resuf Ahmed, Paul Brimble, Alessandro Saia, and Dean Yang</p>
-                <div class="abstract-container">
-                    <button class="abstract-toggle" onclick="toggleAbstract('abstract1')">Show Abstract</button>
-                    <p id="abstract1" class="paper-description abstract-hidden">
-                        This study examines the long-term social and political impacts of mass media exposure to religious content in India. We study the impact of "Ramayan," the massively popular adaptation of the Hindu epic televised in 1987-88. To identify causal effects, we conduct difference-in-difference analyses and exploit variation in TV signal strength driven by location of TV transmitters and topographical features inhibiting electromagnetic TV signal propagation. We find that areas with higher exposure to Ramayan (higher TV signal strength when the show aired) experienced significant cultural and political changes. First, we document a strengthening of religious identity among Hindus: parents in these areas became more likely to give their newborn sons traditionally Hindu names, and households showed increased adherence to orthodox Hindu dietary practices. In the short term, this cultural shift led to an increase in Hindu-Muslim communal violence through 1992. Over the longer term, through 2000, the Hindu nationalist Bharatiya Janata Party (BJP) became more likely to win state assembly elections. Analyses of changes in local TV signal strength in India over decades indicate that these effects are not due to general access to TV but are due to exposure to the Ramayan TV show in 1987-1988. Our findings reveal that media portrayal of religious narratives can have lasting effects on cultural identity, intergroup violence, and electoral outcomes.
-                    </p>
-                </div>
+                <p class="paper-description">
+                    This study examines the long-term social and political impacts of mass media exposure to religious content in India. We study the impact of "Ramayan," the massively popular adaptation of the Hindu epic televised in 1987-88. To identify causal effects, we conduct difference-in-difference analyses and exploit variation in TV signal strength driven by location of TV transmitters and topographical features inhibiting electromagnetic TV signal propagation. We find that areas with higher exposure to Ramayan (higher TV signal strength when the show aired) experienced significant cultural and political changes. First, we document a strengthening of religious identity among Hindus: parents in these areas became more likely to give their newborn sons traditionally Hindu names, and households showed increased adherence to orthodox Hindu dietary practices. In the short term, this cultural shift led to an increase in Hindu-Muslim communal violence through 1992. Over the longer term, through 2000, the Hindu nationalist Bharatiya Janata Party (BJP) became more likely to win state assembly elections. Analyses of changes in local TV signal strength in India over decades indicate that these effects are not due to general access to TV but are due to exposure to the Ramayan TV show in 1987-1988. Our findings reveal that media portrayal of religious narratives can have lasting effects on cultural identity, intergroup violence, and electoral outcomes.
+                </p>
                 <div class="paper-coverage">
                     <p><strong>Media Coverage:</strong> <a href="https://www.thehindu.com/society/how-the-ramayan-tv-show-helped-shape-a-singular-nationwide-hindu-identity/article69202807.ece" target="_blank" class="coverage-link">The Hindu</a></p>
                 </div>
             </div>
 
             <h2>Works in Progress</h2>
+
             <div class="paper-item">
-                <h3 class="paper-title">Moving Opportunity Closer: Public Transportation, Firm Growth, and Female Employment </h3>
-                <p class="paper-coauthors">with Karmini Sharma</p>
+                <h3 class="paper-title">Unintended Consequences of Firm Agglomeration on Female Employment in India</h3>
+
+                <p class="paper-description">
+                    Women across the globe face a higher disutility from commuting to work; this is exacerbated in the context of India where only 20% of the women participate in the labor force and majority of the working women commute less than 2 kilometers. This paper explores the effects of spatial concentration of firms on gender disparities in employment outcomes. Studying an industrial policy that indirectly increased firm concentration, I find that exposure to the policy increases the average distance of a work opportunity which disproportionately reduces female employment. This could also have implications for firm productivity: firms may hire less productive men in the place of more productive women who are outside of their labor catchment area. This study underscores the equity implications of policies designed for economic efficiency and motivate my exploration of interventions that could bridge these disparities by enhancing mobility and demand for female workers.
+                </p>
+
+                <div class="paper-links">
+                    <a href="https://www.dropbox.com/scl/fi/e4t7qb2on2wv803wvrp49/slides_agglo.pdf?rlkey=lykb49m8o7d9pywk58hqhf6j0&dl=0" class="paper-link" target="_blank">Slides</a>
+                </div>
+            </div>
+
+
+            <div class="paper-item">
+                <h3 class="paper-title">Measuring Employment Effects of Virtual Career Coaching Through LinkedIn Profiles</h3>
+
+                <p class="paper-description">
+                    Can low-cost virtual career development programs improve employment outcomes for underrepresented groups? I evaluate an asynchronous career coaching intervention that teaches communication, self-promotion, and career skills while offering mentoring opportunities to Muslim women in India. The program was delivered through a randomized controlled trial with approximately 600 participants in India, organized in cohorts of around 50 each. I assess career preparedness through third-party mock interviews and measure medium-run employment outcomes using LinkedIn profile analysis, including employment status, career progression, industry transitions, firm mobility, job positions, and promotions. This approach demonstrates how social media data can enable cost-effective measurement of employment trajectories. The study examines whether accessible virtual career development programs can improve professional outcomes for women facing barriers to corporate employment, with implications for scalable interventions targeting underrepresented populations in labor markets.
+                </p>
+
+                <div class="paper-links">
+                    <a href="https://www.socialscienceregistry.org/trials/15751" class="paper-link" target="_blank">AEA RCT Registration</a>
+                </div>
+
             </div>
 
             <div class="paper-item">
-                <h3 class="paper-title">Enhancing Employment for Muslim Women in India Through Low-Cost Virtual Training</h3>
+                <h3 class="paper-title">Promoting Equality: Gender Gaps in Job Applications and Labor Market Outcomes</h3>
+                <p class="paper-coauthors">with Willian Adamczyk, Verónica Escudero, and Sally Zhang</p>
+
+                <p class="paper-description">
+                    Despite Brazil's reversed gender gap in education, persistent wage disparities remain. Using a unique dataset linking Brazilian workers' online job applications to administrative employment records, we examine gender differences in application behavior and subsequent labor market outcomes. Employing natural language processing to extract skills and job amenities from applications, we find that similarly qualified women apply to lower-paying positions and experience wage penalties following job transitions. The gender wage gap widens significantly post-application, with women placed in roles requiring fewer skills and offering different amenities. These findings suggest that gendered application patterns contribute substantially to persistent wage inequality.
+                </p>
+                <div class="paper-links">
+                    <a href="https://www.dropbox.com/scl/fi/tyh1c75q86iocbyf9ln75/slides_ILO.pdf?rlkey=6zzjdoo5eufb2s6quh0dwejsi&st=cm92gp4u&dl=0" class="paper-link" target="_blank">Slides</a>
+                </div>
             </div>
 
-            <div class="paper-item">
-                <h3 class="paper-title">Promoting Equality: Gender Gaps in Job Applications and Career Outcomes - Evidence from Job Portal and Administrative Data in Brazil </h3>
-                <p class="paper-coauthors">with Willian Adamczyk, Verónica Escudero, and Sally Zhang </p>
-            </div>
-
-        
             <h2>Other Publications</h2>
             <div class="paper-item">
                 <h3 class="paper-title">
@@ -77,26 +504,45 @@
                         Real Solutions for Fake News? Measuring the Effectiveness of General Warnings and Fact-Check Banners in Reducing Belief in False Stories on Social Media
                     </a>
                 </h3>
+                <p class="paper-coauthors">with Katherine Clayton, Brendan Nyhan et al.</p>
                 <p class="paper-journal"><em>Political Behavior</em>, 42, 1073-1095 (2020)</p>
-                <div class="paper-coverage"></div>
+                <div class="paper-coverage">
                     <p><strong>Media Coverage:</strong> <a href="https://www.nytimes.com/2020/05/27/technology/trump-twitter.html" target="_blank" class="coverage-link">The New York Times</a></p>
                 </div>
             </div>
         </section>
-    </main>
-    <script>
-        function toggleAbstract(id) {
-            const abstract = document.getElementById(id);
-            const button = abstract.previousElementSibling;
+
+        <section class="research-section" id="teaching">
+            <h2>Teaching</h2>
             
-            if (abstract.classList.contains('abstract-hidden')) {
-                abstract.classList.remove('abstract-hidden');
-                button.textContent = 'Hide Abstract';
-            } else {
-                abstract.classList.add('abstract-hidden');
-                button.textContent = 'Show Abstract';
-            }
-        }
-    </script>
+            <div class="teaching-item">
+                <div class="teaching-course">
+                    <strong>Urban Policy and Inequality</strong> with Laura Weiwu (Spring 2025) 
+                    <a href="https://www.dropbox.com/scl/fi/0aped8vju0d5p36yxw45o/econ101_evals.pdf?rlkey=u49humsp2lw1m2m9rwym025sn&dl=0" class="teaching-eval-link" target="_blank">[Teaching Evaluations]</a>
+                </div>
+            </div>
+            
+            <div class="teaching-item">
+                <div class="teaching-course">
+                    <strong>Development Economics</strong> with Melanie Morten, Santiago Saavedra (Winter 2023, Spring 2024) 
+                    <a href="https://www.dropbox.com/scl/fi/u7hfycpo66zwqtd34c6fg/econ118_evals.pdf?rlkey=ifm7c1ofydnkprk2fmcfkik5p&dl=0" class="teaching-eval-link" target="_blank">[Teaching Evaluations]</a>
+                </div>
+            </div>
+            
+            <div class="teaching-item">
+                <div class="teaching-course">
+                    <strong>Principles of Economics</strong> with John Taylor, Mark Tendall (Fall 2022, Spring 2023) 
+                    <a href="https://www.dropbox.com/scl/fi/4io4nnj9m5inou1g55pq2/econ1_evals.pdf?rlkey=fyoy22f7bgbf04mom7ssqe178&dl=0" class="teaching-eval-link" target="_blank">[Teaching Evaluations]</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="teaching-philosophy">
+            <p>
+                I believe students better appreciate economic topics and learn complex econometric concepts through hands-on experience. To that end, I develop class materials that guide students through searching, processing, and analyzing real-world data to answer questions in the topics they are studying. Examples: <a href="https://www.dropbox.com/scl/fo/ovv0c77vzyyk1kpvl32u1/AMg7u6sR0bXiVDTm8l4C8WI?rlkey=vnq5po9aripw5vclezlyizb2q&dl=0" class="teaching-link" target="_blank">R exercises for spatial analysis</a>, <a href="https://www.dropbox.com/scl/fi/zam97p9c5sdqqv5tthpag/IPUMS_data_tutorial.pdf?rlkey=ddgqn286ao7k0fdfczvssjcxe&dl=0" class="teaching-link" target="_blank">IPUMS tutorial</a>.
+            </p>
+        </div>
+
+    </main>
 </body>
 </html>
